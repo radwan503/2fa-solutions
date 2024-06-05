@@ -48,22 +48,27 @@ export default function AppAppBar({ mode, toggleColorMode }) {
         mt: 2,
       }}
     >
-      <Container maxWidth="lg">
+      <Container px="0px" maxWidth="lg">
         <Toolbar
           variant="regular"
           sx={(theme) => ({
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexShrink: 0,
-            borderRadius: '999px',
-            bgcolor: 'hsla(220, 60%, 99%, 0.6)',
-            backdropFilter: 'blur(24px)',
-            maxHeight: 40,
-            border: '1px solid',
-            borderColor: 'divider',
-            boxShadow: '0 1px 2px hsla(210, 0%, 0%, 0.05), 0 2px 12px hsla(210, 100%, 80%, 0.5)',
+            px: 0,
+            mx: 0,
+            paddingLeft: "0px",
+            paddingRight: "0px",
+            // display: 'flex',
+            // alignItems: 'center',
+            // justifyContent: 'space-between',
+            // flexShrink: 0,
+            // borderRadius: '999px',
+            // bgcolor: 'hsla(220, 60%, 99%, 0.6)',
+            // backdropFilter: 'blur(24px)',
+            // maxHeight: 40,
+            // border: '1px solid',
+            // borderColor: 'divider',
+            // boxShadow: '0 1px 2px hsla(210, 0%, 0%, 0.05), 0 2px 12px hsla(210, 100%, 80%, 0.5)',
           })}
+          style={{ paddingLeft: "0px", paddingRight: "0px", }}
         >
           <Box
             sx={{
