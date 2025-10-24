@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Grid } from '@mui/material';
 import heroImg from '/public/hero/img_1.jpg';
+import Link from 'next/link';
 
 
 export default function Hero() {
@@ -23,7 +24,7 @@ export default function Hero() {
         backgroundRepeat: 'no-repeat',
         backgroundSize: "cover",
         //height: "calc(100vh - 20px)"
-        backgroundImage: 'url(/blob.svg)',
+        backgroundImage: 'url(blob.svg)',
         backgroundPosition: 'center',
       }}
     >
@@ -81,10 +82,10 @@ export default function Hero() {
               >
                 for Startups, Scaleups and Enterprises
               </Typography>
-
+              <Link href="#contactus">
               <Button size='large' sx={{ px: "35px", py: "10px", mt: "30px" }} variant="contained" color="primary">
                 Contact Us
-              </Button>
+              </Button></Link>
             </Box>
           </Grid>
           <Grid item md={5}>
@@ -95,7 +96,7 @@ export default function Hero() {
               sx={{ width: { xs: '100%', sm: '100%' } }}
               position="relative"
             >
-              <Image src={heroImg} style={{ width: "100%", height: "100%" }} />
+              <Image src={heroImg} style={{ width: "100%", height: "100%" }} alt='hero image' />
               <motion.div
                 style={{
                   position: "absolute", top: "-20px", left: '-50px'

@@ -11,34 +11,9 @@ import Typography from '@mui/material/Typography';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import { AcUnit, Attractions, AutoAwesome } from '@mui/icons-material';
 import { brand } from '../app/getLPTheme';
+import { items } from '../public/data/data';
 
-const items = [
-  {
-    icon: <AutoAwesome />,
-    title: 'Quality and innovation',
-    description:
-      'We build high-performing, scalable websites using the latest web frameworks, CMS, and e-commerce platforms, ensuring mobile optimization, security, and effective visitor conversion.',
-    imageLight: 'url("/expartise.jpg")',
-    imageDark: 'url("/expartise.jpg")',
-  },
-  {
-    icon: <Attractions />,
-    title: 'Dedicated service',
-    description:
-      'We provide dedicated account management and support, acting as an extension of your team to ensure your long-term success and satisfaction.',
-    imageLight: 'url("/quality.jpg")',
-    imageDark: 'url("/quality.jpg")',
-  },
-  {
-    icon: <AcUnit />,
-    title: 'Proven expertise',
-    description:
-      'With over seven years of successful experience, we build modern, user-friendly websites and web apps using the latest web technologies and design trends.',
-    imageLight: 'url("/service.jpg")',
-    imageDark: 'url("/service.jpg")',
-  }
 
-];
 
 function Chip({ selected, ...props }) {
   return <MuiChip {...props} />;

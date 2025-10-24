@@ -10,42 +10,8 @@ import Link from 'next/link';
 import { ArrowOutward } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 import { brand } from '../app/getLPTheme';
+import { portfolios } from '../public/data/data';
 
-const portfolios = [
- {
-  avatar: <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />,
-  name: 'Really Great Site',
-  subtitle: 'Portflio Website',
-  url: 'https://radwananik.com/',
-  banner: "/portfolio/p1.png"
-
- },
- {
-  avatar: <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />,
-  name: 'Qaiba Homes',
-  subtitle: 'architecture platform',
-  url: 'https://radwananik.com/',
-  banner: "/portfolio/p2.png"
-
- },
- {
-  avatar: <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />,
-  name: 'astrid sanchez',
-  subtitle: 'plant business',
-  url: 'https://radwananik.com/',
-  banner: "/portfolio/p3.png"
-
- },
- {
-  avatar: <Avatar alt="Remy Sharp" src="/static/images/avatar/4.jpg" />,
-  name: 'crm',
-  subtitle: 'CRM management',
-  url: 'https://radwananik.com/',
-  banner: "/portfolio/p4.png"
-
- }
-
-];
 
 
 

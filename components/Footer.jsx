@@ -1,27 +1,28 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import IconButton from '@mui/material/IconButton';
-import InputLabel from '@mui/material/InputLabel';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
+"use client";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import InputLabel from "@mui/material/InputLabel";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import { visuallyHidden } from "@mui/utils";
 
-import { visuallyHidden } from '@mui/utils';
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
-import FacebookIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/X';
-import Image from 'next/image';
-import logo from '/public/logo.svg'
-
+import Image from "next/image";
+import logo from "/public/logo.svg";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" mt={1}>
-      {'Copyright © '}
+      {"Copyright © "}
       <Link href="#">2FA Solutions&nbsp;</Link>
       {new Date().getFullYear()}
     </Typography>
@@ -29,35 +30,70 @@ function Copyright() {
 }
 
 export default function Footer() {
+  const [showScroll, setShowScroll] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setShowScroll(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <Container
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
         gap: { xs: 4, sm: 8 },
         py: { xs: 8, sm: 10 },
-        textAlign: { sm: 'center', md: 'left' },
+        textAlign: { sm: "center", md: "left" },
+        position: "relative",
       }}
     >
+      {/* ✅ Scroll-to-top Button */}
+      {showScroll && (
+        <IconButton
+          onClick={scrollToTop}
+          sx={{
+            position: "fixed",
+            bottom: 30,
+            right: 30,
+            backgroundColor: "primary.main",
+            color: "#fff",
+            boxShadow: 4,
+            "&:hover": { backgroundColor: "primary.dark" },
+            transition: "all 0.3s ease",
+          }}
+        >
+          <KeyboardArrowUpIcon />
+        </IconButton>
+      )}
+
+      {/* Footer content */}
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', sm: 'row' },
-          width: '100%',
-          justifyContent: 'space-between',
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          width: "100%",
+          justifyContent: "space-between",
         }}
       >
         <Box
           sx={{
-            display: 'flex',
-            flexDirection: 'column',
+            display: "flex",
+            flexDirection: "column",
             gap: 4,
-            minWidth: { xs: '100%', sm: '60%' },
+            minWidth: { xs: "100%", sm: "60%" },
           }}
         >
-          <Box sx={{ width: { xs: '100%', sm: '60%' } }}>
-            <Image src={logo} alt='' />
+          <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
+            <Image src={logo} alt="logo" />
             <Typography variant="body2" fontWeight={600} gutterBottom sx={{ mt: 2 }}>
               Join the newsletter
             </Typography>
@@ -77,8 +113,8 @@ export default function Footer() {
                 aria-label="Enter your email address"
                 placeholder="Your email address"
                 inputProps={{
-                  autoComplete: 'off',
-                  'aria-label': 'Enter your email address',
+                  autoComplete: "off",
+                  "aria-label": "Enter your email address",
                 }}
               />
               <Button variant="contained" color="primary" sx={{ flexShrink: 0 }}>
@@ -87,13 +123,9 @@ export default function Footer() {
             </Stack>
           </Box>
         </Box>
-        <Box
-          sx={{
-            display: { xs: 'none', sm: 'flex' },
-            flexDirection: 'column',
-            gap: 1,
-          }}
-        >
+
+        {/* Links Sections */}
+        <Box sx={{ display: { xs: "none", sm: "flex" }, flexDirection: "column", gap: 1 }}>
           <Typography variant="body2" fontWeight="medium">
             Product
           </Typography>
@@ -101,25 +133,20 @@ export default function Footer() {
             Services
           </Link>
           <Link color="text.secondary" variant="body2" href="#">
-            Whys Us
+            Why Us
           </Link>
           <Link color="text.secondary" variant="body2" href="#">
             Our Work
           </Link>
           <Link color="text.secondary" variant="body2" href="#">
-            Testmonial
+            Testimonials
           </Link>
           <Link color="text.secondary" variant="body2" href="#">
             Contact
           </Link>
         </Box>
-        <Box
-          sx={{
-            display: { xs: 'none', sm: 'flex' },
-            flexDirection: 'column',
-            gap: 1,
-          }}
-        >
+
+        <Box sx={{ display: { xs: "none", sm: "flex" }, flexDirection: "column", gap: 1 }}>
           <Typography variant="body2" fontWeight="medium">
             Company
           </Typography>
@@ -133,13 +160,8 @@ export default function Footer() {
             Press
           </Link>
         </Box>
-        <Box
-          sx={{
-            display: { xs: 'none', sm: 'flex' },
-            flexDirection: 'column',
-            gap: 1,
-          }}
-        >
+
+        <Box sx={{ display: { xs: "none", sm: "flex" }, flexDirection: "column", gap: 1 }}>
           <Typography variant="body2" fontWeight="medium">
             Legal
           </Typography>
@@ -154,14 +176,16 @@ export default function Footer() {
           </Link>
         </Box>
       </Box>
+
+      {/* Bottom Footer Bar */}
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
+          display: "flex",
+          justifyContent: "space-between",
           pt: { xs: 4, sm: 8 },
-          width: '100%',
-          borderTop: '1px solid',
-          borderColor: 'divider',
+          width: "100%",
+          borderTop: "1px solid",
+          borderColor: "divider",
         }}
       >
         <div>
@@ -176,37 +200,21 @@ export default function Footer() {
           </Link>
           <Copyright />
         </div>
+
         <Stack
           direction="row"
           justifyContent="left"
           spacing={1}
           useFlexGap
-          sx={{
-            color: 'text.secondary',
-          }}
+          sx={{ color: "text.secondary" }}
         >
-          <IconButton
-            color="inherit"
-            href="#"
-            aria-label="GitHub"
-            sx={{ alignSelf: 'center' }}
-          >
-            <FacebookIcon />
+          <IconButton color="inherit" href="#" aria-label="GitHub" sx={{ alignSelf: "center" }}>
+            <GitHubIcon />
           </IconButton>
-          <IconButton
-            color="inherit"
-            href="#"
-            aria-label="X"
-            sx={{ alignSelf: 'center' }}
-          >
+          <IconButton color="inherit" href="#" aria-label="Twitter" sx={{ alignSelf: "center" }}>
             <TwitterIcon />
           </IconButton>
-          <IconButton
-            color="inherit"
-            href="#"
-            aria-label="LinkedIn"
-            sx={{ alignSelf: 'center' }}
-          >
+          <IconButton color="inherit" href="#" aria-label="LinkedIn" sx={{ alignSelf: "center" }}>
             <LinkedInIcon />
           </IconButton>
         </Stack>
